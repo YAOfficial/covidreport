@@ -20,7 +20,7 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `images`,
+      
         path: `${__dirname}/src/assets/images`,
       },
     },
@@ -28,7 +28,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
-        name: siteMetadata.companyName,
+      
         short_name: siteMetadata.companyName,
         start_url: '/',
         icon: 'src/assets/images/react-leaflet-icon.png',
