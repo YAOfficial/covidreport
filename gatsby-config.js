@@ -1,5 +1,6 @@
 const config = require( './package.json' );
 
+
 const siteMetadata = {
  
 };
@@ -24,7 +25,7 @@ module.exports = {
       
      
        
-      
+        icon: 'src/assets/images/react-leaflet-icon.png',
       },
     },
   ],
