@@ -302,7 +302,17 @@ const geoJson = {
        document.getElementById("hidt").innerHTML = "Cases"
        document.getElementById("hidd").innerHTML = "Deaths"
      
-    })
+    }).on('click', function (e) {
+      var index = data.map(function(e) { return e.country; }).indexOf(country);
+      document.getElementById("contain").style.backgroundColor = "#022b61"
+      document.getElementById("contain").style.backgroundImage= 'url(' + floga[index] + ')';
+     document.getElementById("tests").innerHTML = cases.toLocaleString()
+     document.getElementById("deaths").innerHTML = deaths.toLocaleString() 
+     document.getElementById("country").innerHTML = country
+     document.getElementById("hidt").innerHTML = "Cases"
+     document.getElementById("hidd").innerHTML = "Deaths"
+   
+  })
     
      
 
