@@ -21,7 +21,7 @@ const Layout = ({ children, pageName }) => {
       </Helmet>
       <div className="wrapper">
         <Header />
-        <main>{ children }</main>
+        <main id="main">{ children }</main>
         <Footer />
       </div>
     </>

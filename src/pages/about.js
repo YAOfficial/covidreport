@@ -1,35 +1,31 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 
-import { useSiteMetadata } from 'hooks';
 
 import Layout from 'components/Layout';
 import Container from 'components/Container';
 
-const SecondPage = () => {
-  const { companyName, companyUrl, authorName, authorUrl, siteDescription } = useSiteMetadata();
-
-  return (
-    <Layout pageName="about">
-      <Helmet>
-        <title>About</title>
-      </Helmet>
-      <Container type="content">
-        <h1>About</h1>
-
-        <h2>{ companyName }</h2>
-        <p>{ siteDescription }</p>
-        <p>
-          <a href={companyUrl}>View on Github</a>
-        </p>
-
-        <h2>Created By</h2>
-        <p>
-          <a href={authorUrl}>{ authorName }</a>
-        </p>
-      </Container>
-    </Layout>
-  );
-};
-
-export default SecondPage;
+  
+  const SecondPage = () => {
+    return (
+      <Layout pageName="about">
+        <Helmet>
+          <title>About</title>
+        </Helmet>
+        <Container type="content">
+          <h1 id="about">About Covid Report </h1>
+  
+          <h2 id="about">This project visualizes data regarding CoronaVirus (Covid-19)  using trusted and official sources </h2>
+          <p id="about">View project code on  <a href="https://github.com/YAOfficial"> Github</a> </p>
+          
+  
+          <h2 id="about">Created By</h2>
+          <p id="about">
+            <a href="https://www.linkedin.com/in/yusufahmed1/">Yusuf Ahmed</a>
+          </p>
+        </Container>
+      </Layout>
+    );
+  };
+  export default SecondPage;
+  

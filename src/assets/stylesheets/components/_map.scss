@@ -1,14 +1,13 @@
 .map {
-
   position: relative;
+  width: 80%;
+  float: right;
 
   &,
   .map-base {
-    width: 100%;
-    height: 100%;
-    background: $blue-grey-50;
+    background: rgb(249, 251, 255);
+    height: 2vw;
   }
-
 }
 
 .map-loading {
@@ -19,18 +18,71 @@
   left: 0;
   color: $blue-grey-200;
   font-family: $font-default;
-  width: 100%;
-  height: 4em;
-  line-height: 4em;
+
   text-align: center;
   margin: auto;
 }
+.icon-marker {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  width: 3.6em;
+  height: 3.6em;
+  font-size: 0.7em;
+  font-weight: bold;
+  background-color: rgb(1, 15, 36);
+  border-radius: 100%;
+  box-shadow: 0 2px 5px rgba(rgb(7, 31, 109), 0.9);
 
-.map-marker {
+  &:hover {
+    .icon-marker-tooltip {
+      display: block;
+    }
+  }
+}
+#myChart {
+  width: 10vw;
+}
+.icon-marker-tooltip {
+  display: none;
+  position: absolute;
+  bottom: 100%;
+  width: 16em;
+  font-size: 1.4em;
+  padding: 1em;
+  background-color: white;
+  border-radius: 0.4em;
+  margin-bottom: 1em;
+  box-shadow: 0 3px 5px rgba(black, 0.9);
 
-  &[class*="shadow"] {
-    filter: blur(5px);
-    opacity: .7;
+  h2 {
+    font-size: 1.5em;
+    line-height: 1.2;
+    margin-bottom: 0.1em;
+    color: rgb(1, 15, 36);
+    margin-top: 0;
   }
 
+  h3 {
+    font-size: 1.2em;
+    color: rgb(1, 15, 36);
+    margin: 0.1em 0;
+    font-weight: normal;
+    color: $blue-grey-100;
+  }
+
+  ul,
+  p {
+    font-weight: normal;
+    color: rgb(1, 15, 36);
+  }
+
+  ul {
+    list-style: none;
+    color: rgb(1, 15, 36);
+    padding: 0;
+    margin: 0.6em 0 0;
+  }
 }
