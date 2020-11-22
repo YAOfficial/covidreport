@@ -20,7 +20,7 @@ const Header = () => {
             <Link to="/about/">About</Link>
           </li>
           <li>
-            <a href="https://github.com/YAOfficial">
+            <a href="https://github.com/YAOfficial/covidreport">
               <span className="visually-hidden">Github</span>
               <FaGithub />
             </a>

@@ -16,7 +16,7 @@ import Container from 'components/Container';
           <h1 id="about">About Covid Report </h1>
   
           <h2 id="about">This project visualizes data regarding CoronaVirus (Covid-19)  using trusted and official sources </h2>
-          <p id="about">View project code on  <a href="https://github.com/YAOfficial"> Github</a> </p>
+          <p id="about">View project code on  <a href="https://github.com/YAOfficial/covidreport"> Github</a> </p>
           
   
           <h2 id="about">Created By</h2>

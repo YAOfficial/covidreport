@@ -52,10 +52,7 @@ const hasData = Array.isArray(data) && data.length > 0;
       
 if ( !hasData ) return;
 let spinnerWrapper = document.querySelector('.spinner-wrapper');
-window.addEventListener('load', function () {
-  // spinnerWrapper.style.display = 'none';
-  spinnerWrapper.parentElement.removeChild(spinnerWrapper);
-});
+
 
 
 if(spinnerWrapper){
@@ -334,7 +331,7 @@ const geoJson = {
    
     <Layout  id="home" pageName="home">
       <Helmet>
-        <title >Home Page</title>
+        <title >Covid Report</title>
       </Helmet>
       <div id="container2" ><h1 id="sidehead">Todays Cases Update</h1> <br></br><div id="cont31"></div><div id="container1"></div></div>
     
