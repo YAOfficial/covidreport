@@ -1,14 +1,7 @@
 const config = require( './package.json' );
 
-const { title, description, author, repository, homepage } = config;
-
 const siteMetadata = {
-  companyName: title,
-  companyUrl: repository.url,
-
-  authorUrl: author.url,
-  siteUrl: homepage,
-  siteDescription: description,
+ 
 };
 
 module.exports = {
@@ -29,9 +22,9 @@ module.exports = {
       resolve: 'gatsby-plugin-manifest',
       options: {
       
-        short_name: siteMetadata.companyName,
-        start_url: '/',
-        icon: 'src/assets/images/react-leaflet-icon.png',
+     
+       
+      
       },
     },
   ],

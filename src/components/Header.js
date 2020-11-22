@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'gatsby';
 import { FaGithub } from 'react-icons/fa';
 
-import { useSiteMetadata } from 'hooks';
 
 import Container from 'components/Container';
 
