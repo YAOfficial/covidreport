@@ -51,7 +51,7 @@ let TodaysDeaths = Object.values(data).map(({deaths,  country}) =>
 );
 ```
 
-# Total Global Cases/Deaths/Recoveries
+# Higest  Cases/Deaths/Recoveries
 
 The numbers were made by getting the highest Cases/Deaths/Recoveries from the api , then getting their index and using it to find the name of the country as such 
 Example:
@@ -61,10 +61,17 @@ let RecoveredV  = Math.max(...data.map(o => o.todayRecovered), 0)
   const nationOfRecoveredV = data[indexOfRecoveredv].country
 ```
 
-# Highest current Cases/Deaths/Recoveries
+# Total current Cases/Deaths/Recoveries
 
-List was made using the same method as the above code
-
+List was made by getting all the Cases/DeathsRecoveries, adding them together and showing them as such
+Example:
+```
+let allCases = Object.values(data).map(({cases}) => 
+cases
+);
+let totalOfCases = allCases.reduce((a, b) => a + b, 0)
+document.getElementById("totalOfCases").innerHTML = totalOfCases.toLocaleString()
+```
 # On Marker Click/Hover
 
 The popup on marker Click/Hover was done using the .on  function on  the leaflet marker and then showing a div when it happens as such
