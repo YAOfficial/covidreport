@@ -1,77 +1,81 @@
-# 🍃 Gatsby Leaflet Starter
-<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-3-orange.svg?style=flat-square)](#contributors-)
-<!-- ALL-CONTRIBUTORS-BADGE:END -->
+# 🍃 Covid-19 DashBoard 
 
-Jumpstart your next Gatsby mapping project with Leaflet!
+Project showcases graphs , charts, map & lists relevant to covid-19 
 
-## ⚡ Quick Deploy
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/colbyfayock/gatsby-starter-leaflet) [![Deploy with Vercel Now](https://zeit.co/button)](https://vercel.com/import/project?template=https://github.com/colbyfayock/gatsby-starter-leaflet)
+Built using Html, Css, Javascript, React, Gatsby, leaflet, Recharts & axios
 
 
-## 🧰 What This Includes
-* [Yarn](https://yarnpkg.com/en/)
-* [Gatsby](https://www.gatsbyjs.org/)
-* [Sass](https://sass-lang.com)
-* [React Helmet](https://github.com/nfl/react-helmet)
-* [Resolve Src](https://github.com/alampros/gatsby-plugin-resolve-src)
-* [Leaflet](https://leafletjs.com/)
-* [React Leaflet](https://react-leaflet.js.org)
+# 🍃 Documentation 
 
-## 🚀 Getting Started
+# Api
 
-### Requirements
-* [Gatsby CLI](https://www.npmjs.com/package/gatsby-cli)
-* [Yarn](https://yarnpkg.com/en/)
-
-### Quick Start
-Run the following in your favorite terminal:
+Used the following api https://corona.lmao.ninja/  and with the help of axios got the data and saved it to variable like such
+Example:
 ```
-gatsby new my-map-app https://github.com/colbyfayock/gatsby-starter-leaflet
+ let response;
+    try {
+      response = await axios.get('https://corona.lmao.ninja/v2/countries');
+    } catch(e) {
+      console.log(`Failed to fetch countries: ${e.message}`, e);
+      return;
+    }
+    const { data = [] } = response;
+    const hasData = Array.isArray(data) && data.length > 0;
+if ( !hasData ) return;
+```
+# MAP
+
+Map was built using leaflet https://leafletjs.com/ , the code is too long to put here but i used the default map from the site
+
+# Markers
+
+Leaflet alllows markers to be placed using a lat lng value, i got the lat long lng value of each nation from the Api and used it on leaflet like such 
+Example:
+```
+features: data.map((country = {}) => {
+    const { countryInfo = {} } = country;
+    const { lat, long: lng } = countryInfo;
+    }
+```
+# Charts 
+
+I used the Recharts framework https://recharts.org/en-US/, got the number of Cases/Deaths and used them as the data for the chart , code is too long too long/pointless to put here but i used the linechart component from the site
+
+# Todays Cases/Deaths List
+
+The lists were made by getting the daily Cases/Deaths and stringifying them with the name of the country like such
+Example:
+```
+let TodaysDeaths = Object.values(data).map(({deaths,  country}) => 
+  `${country} + ${deaths}` 
+);
 ```
 
-### Starting from Scratch
-* Set up Yarn: https://yarnpkg.com/lang/en/docs/install/#mac-stable)[https://yarnpkg.com/lang/en/docs/install/
-* Install the Gatsby CLI globally:
-```
-yarn global add gatsby-cli
-```
-* Inside the directory of your choice, scaffold a new Gatsby site:
-```
-gatsby new my-map-app https://github.com/colbyfayock/gatsby-starter-leaflet
-```
-For example, if I want my installation in `~/Code/new-gatsby-site`, I would navigate to `~/Code` and run:
-```
-gatsby new new-gatsby-site https://github.com/colbyfayock/gatsby-starter-leaflet
-```
-* Navigate to your new directory and run:
-```
-yarn develop
-```
-* You should now be running a new Gatsby site locally! 🎉
+# Total Global Cases/Deaths/Recoveries
 
-## 🗺 Resources to Learn About Mapping
-* [Mapping with React Leaflet](https://egghead.io/playlists/mapping-with-react-leaflet-e0e0?af=atzgap) (egghead.io)
-* [How to build a mapping app in React the easy way with Leaflet](https://www.freecodecamp.org/news/easily-spin-up-a-mapping-app-in-react-with-leaflet/) (freecodecamp.org)
-* [Anyone Can Map! Inspiration and an introduction to the world of mapping](https://www.colbyfayock.com/2020/03/anyone-can-map-inspiration-and-an-introduction-to-the-world-of-mapping/) (colbyfayock.com)
+The numbers were made by getting the highest Cases/Deaths/Recoveries from the api , then getting their index and using it to find the name of the country as such 
+Example:
+```
+let RecoveredV  = Math.max(...data.map(o => o.todayRecovered), 0)
+  let indexOfRecoveredv = data.map(function(e) { return e.todayRecovered; }).indexOf(RecoveredV);
+  const nationOfRecoveredV = data[indexOfRecoveredv].country
+```
 
-## Contributors ✨
+# Highest current Cases/Deaths/Recoveries
 
-Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
+List was made using the same method as the above code
 
-<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
-<!-- prettier-ignore-start -->
-<!-- markdownlint-disable -->
-<table>
-  <tr>
-    <td align="center"><a href="https://colbyfayock.com/newsletter"><img src="https://avatars2.githubusercontent.com/u/1045274?v=4" width="100px;" alt=""/><br /><sub><b>Colby Fayock</b></sub></a><br /><a href="https://github.com/colbyfayock/gatsby-starter-leaflet/commits?author=colbyfayock" title="Code">💻</a> <a href="https://github.com/colbyfayock/gatsby-starter-leaflet/commits?author=colbyfayock" title="Documentation">📖</a></td>
-    <td align="center"><a href="http://fuku710.info"><img src="https://avatars2.githubusercontent.com/u/13159978?v=4" width="100px;" alt=""/><br /><sub><b>Fukuda Naoto</b></sub></a><br /><a href="https://github.com/colbyfayock/gatsby-starter-leaflet/commits?author=fuku710" title="Code">💻</a></td>
-    <td align="center"><a href="http://dynamicdigvijay@gmal.com"><img src="https://avatars0.githubusercontent.com/u/59700645?v=4" width="100px;" alt=""/><br /><sub><b>Digvijay Singh Rathore</b></sub></a><br /><a href="https://github.com/colbyfayock/gatsby-starter-leaflet/commits?author=digvijaysrathore" title="Code">💻</a></td>
-  </tr>
-</table>
+# On Marker Click/Hover
 
-<!-- markdownlint-enable -->
-<!-- prettier-ignore-end -->
-<!-- ALL-CONTRIBUTORS-LIST:END -->
+The popup on marker Click/Hover was done using the .on  function on  the leaflet marker and then showing a div when it happens as such
+Example:
+```
+L.MARKER.on('mouseover', function (e) { .... code that happens when you hover over marker }
+L.MARKER.on('click', function (e) {  .... code that happens when you hover over marker }
+```
 
-This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
+# Finale
+
+That is all if you wish to contribute feel free to send a pr , for any further info do contact me on linkedin 
+
+Thanks BYE!!
